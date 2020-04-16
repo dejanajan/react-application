@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { InputField } from "./components/atoms/Input/Input.component";
+import { Loader } from "./components/molecules/Loader/Loader.component";
+import { List } from "./components/organisms/List/List.component";
+import { PageContainer } from "./components/templates/Page/Page.component";
+
 
 function App() {
   //dataReposList used define repos, setSearchReposData set array
   const [dataReposList, setSearchReposData] = useState([]);
   // inputValue keep track the change in the input field, setSearch saves the data from search input
-  const [inputValue, setSearch] = useState('');
+  const [inputValue, setSearch] = useState<string>("");
   // status of loading data 
   const [loading, setLoading] = useState(true);
 
@@ -27,32 +32,22 @@ function App() {
   }, []);
 
     //runs every time when there is a change
-    const handleChangeInput = (event: { target: { value: string }; }) => {
-      setSearch(event.target.value);
-   }
+
 
   if(loading){
-    return <p>Loading repos...</p>
+    return <Loader />
   } 
 
 
   return (
-      <div className="App">
-        <h1>Hello world</h1>
+    <PageContainer>
+        <h1>GitHub Repositories</h1>
+        
+        <InputField value={inputValue} onChange={input => setSearch(input)} />
         <div>
-          <label htmlFor="filterRepos">Filter Repos</label><br/>
-          <input type="text" id="filterRepos" value={inputValue} onChange={handleChangeInput} />
+          <List list={dataReposList} inputValue={inputValue}/>
         </div>
-        <div>
-          <ul>
-            {dataReposList.filter((item: any) => item.name.includes(inputValue))
-            .map((item: { id: number; name: string; html_url: string}) => (
-              <li key={item.id}>
-                <a href={item.html_url}>{item.name}</a></li>
-            ))}
-          </ul>
-        </div>
-      </div>
+    </PageContainer>
     );
   }
 
