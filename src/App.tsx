@@ -31,21 +31,21 @@ function App() {
     })();
   }, []);
 
-    //runs every time when there is a change
-
+  const FilteredReposList: any = dataReposList.filter((item: any) => 
+    item.name.includes(inputValue)
+  );
 
   if(loading){
     return <Loader />
   } 
-
 
   return (
     <PageContainer>
         <h1>GitHub Repositories</h1>
         
         <InputField value={inputValue} onChange={input => setSearch(input)} />
-        <div>
-          <List list={dataReposList} inputValue={inputValue}/>
+        <div>        
+          <List list={FilteredReposList}/>
         </div>
     </PageContainer>
     );
