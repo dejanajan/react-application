@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render Home Page 1`] = `
+<div
+  className="sc-AxirZ hPKnIf"
+>
+  <p>
+    Loading ...
+  </p>
+</div>
+`;

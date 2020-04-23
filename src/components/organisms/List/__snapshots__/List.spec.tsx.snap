@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render List 1`] = `
+<ul
+  className="sc-AxjAm bVsHij"
+>
+  <li>
+    <a>
+      Test
+    </a>
+  </li>
+  <li>
+    <a>
+      Angular
+    </a>
+  </li>
+  <li>
+    <a>
+      React
+    </a>
+  </li>
+</ul>
+`;

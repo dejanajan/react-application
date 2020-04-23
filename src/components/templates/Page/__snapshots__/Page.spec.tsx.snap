@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render Page 1`] = `
+<main
+  className="sc-AxjAm cvhCLc"
+>
+  <p>
+    Test this page content
+  </p>
+</main>
+`;
